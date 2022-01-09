@@ -1,21 +1,16 @@
-// var tasks = {};
+// load any stored tasks on page refresh
+var loadTasks = function() {
+    $("textarea").each(function() {
+        var id = $(this).attr("id");
+        var value = localStorage.getItem(id);
 
-// var loadTasks = function() {
-//     tasks = JSON.parse(localStorage.getItem("tasks"));
+        $(this).val(value);
+    });
+};
 
-//     if (!tasks) {
-//         tasks = {
+loadTasks();
 
-//         }
-//     }
-// }
-
-// var saveTasks = function() {
-//     localStorage.setItem("tasks", JSON.stringify(tasks));
-// };
-
-
-
+// when a save button is clicked, save the tasks to local storage
 $(".saveBtn").on("click", function() {
 
     $("textarea").each(function() {
