@@ -1,7 +1,36 @@
+// var tasks = {};
+
+// var loadTasks = function() {
+//     tasks = JSON.parse(localStorage.getItem("tasks"));
+
+//     if (!tasks) {
+//         tasks = {
+
+//         }
+//     }
+// }
+
+// var saveTasks = function() {
+//     localStorage.setItem("tasks", JSON.stringify(tasks));
+// };
+
+
+
+$(".saveBtn").on("click", function() {
+
+    $("textarea").each(function() {
+        var id = $(this).attr("id");
+        var value = $(this).val();
+        localStorage.setItem(id, value);
+    });
+});
+
 // set the current date at the top of the page
 var setDate = function() {
+    // use moment to retrieve and format the current day/date
     var currentDate = moment().format("dddd, MMMM Do");
 
+    // add the day/date to the page
     $("#currentDay").text(currentDate);
 }
 
